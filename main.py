@@ -136,9 +136,11 @@ def onDirectoryClick():
 def onOpenFileButtonClicked():
     os.startfile(startDirectory + "/" + ui.fileSelect.currentText())
 
+## СВЯЗЬ UI С ФУНКЦИЯМИ
 ui.findButton.clicked.connect(onFindButtonClick)
 ui.fileSelect.currentIndexChanged.connect(changeFile)
 ui.selectDirectoryButton.clicked.connect(onDirectoryClick)
 ui.openFileButton.clicked.connect(onOpenFileButtonClicked)
 
+## ЗАКРЫТИЕ ПРОГРАММЫ
 sys.exit(app.exec())
