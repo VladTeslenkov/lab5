@@ -29,6 +29,7 @@ window = QMainWindow()
 ui = Ui_MainWindow()
 ui.setupUi(window)
 window.show()
+a = 5
 
 ## ДОБАВЛЯЕМ ТИПЫ ФАЙЛОВ В COMBOBOX
 ui.extensionSelect.clear()
@@ -84,7 +85,8 @@ def makePreviewText(s):
 ## ГЛАВНАЯ ФУНКЦИЯ ПОИСКА, ВЫЗЫВАЕТСЯ ПРИ НАЖАТИИ НА КНОПКУ НАЙТИ
 def onFindButtonClick():
     selectedExtension = supportedExtensions.get(ui.extensionSelect.currentText())
-    textToFind = ui.textToFind.toPlainText()    
+    textToFind = ui.textToFind.toPlainText()
+    res = 0   
 
     if (textToFind == ""): 
         messageBox = QMessageBox()
