@@ -147,6 +147,8 @@ def onDirectoryClick():
 def onOpenFileButtonClicked():
     os.startfile(startDirectory + "/" + ui.fileSelect.currentText())
 
+# Обязательно подвязываем события к кнопкам
+# иначе ничего не рабтает 
 ui.findButton.clicked.connect(onFindButtonClick)
 ui.coolfunc(1, "qweqweqw", True)
 ui.fileSelect.currentIndexChanged.connect(onFileSelectChange)
@@ -154,3 +156,5 @@ ui.selectDirectoryButton.clicked.connect(onDirectoryClick)
 ui.openFileButton.clicked.connect(onOpenFileButtonClicked)
 
 sys.exit(app.exec())
+
+stopThisProgramm(True)
