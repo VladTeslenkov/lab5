@@ -79,6 +79,7 @@ def makePreviewText(s):
             prevIndex = currIndex
         else:
             file = row
+            f = false
             file = file.replace(startDirectory + "/", "")
 
         if (ui.fileSelect.findText(file) == -1):
