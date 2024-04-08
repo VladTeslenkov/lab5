@@ -8,7 +8,7 @@ from PyQt5.Qt import *
 from PyQt5 import QtWidgets
 from ui_imagedialog import Ui_MainWindow
 
-#python -m PyQt5.uic.pyuic -x ui_imagedialog.ui -o ui_imagedialog.py
+
 
 supportedExtensions = {".cpp; .c; .h; .hpp" : "--cpp", 
                        ".php" : "--php", 
