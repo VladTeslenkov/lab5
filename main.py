@@ -1,7 +1,8 @@
+## IMPORTS
 import sys
 import os
 import subprocess
-## ЕСЛИ НЕ РАБОТАЕТ, ПОМЕНЯЙ ВЕРСИЮ PYQT
+## Можно использовать PyQt6
 from PyQt5.QtWidgets import QApplication, QMessageBox, QMainWindow
 from PyQt5.Qt import *
 from PyQt5 import QtWidgets
