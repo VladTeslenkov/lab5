@@ -114,10 +114,10 @@ def onFindButtonClick():
     rawOutput = subprocess.Popen(params, encoding='utf-8', stdout=subprocess.PIPE).communicate()[0]
 
     makePreviewText(rawOutput)
-    onFileSelectChange()
+    changeFile()
 
 ## СМЕНА ФАЙЛА       
-def onFileSelectChange():
+def changeFile():
     if (len(filePreviews) > 0):
         ui.filePreview.setText(filePreviews[ui.fileSelect.currentIndex()])
     else:
@@ -137,7 +137,7 @@ def onOpenFileButtonClicked():
     os.startfile(startDirectory + "/" + ui.fileSelect.currentText())
 
 ui.findButton.clicked.connect(onFindButtonClick)
-ui.fileSelect.currentIndexChanged.connect(onFileSelectChange)
+ui.fileSelect.currentIndexChanged.connect(changeFile)
 ui.selectDirectoryButton.clicked.connect(onDirectoryClick)
 ui.openFileButton.clicked.connect(onOpenFileButtonClicked)
 
