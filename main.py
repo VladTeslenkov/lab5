@@ -1,13 +1,14 @@
+## IMPORTS
 import sys
 import os
 import subprocess
-## ЕСЛИ НЕ РАБОТАЕТ, ПОМЕНЯЙ ВЕРСИЮ PYQT
+## Можно использовать PyQt6
 from PyQt5.QtWidgets import QApplication, QMessageBox, QMainWindow
 from PyQt5.Qt import *
 from PyQt5 import QtWidgets
 from ui_imagedialog import Ui_MainWindow
 
-#python -m PyQt5.uic.pyuic -x ui_imagedialog.ui -o ui_imagedialog.py
+
 
 supportedExtensions = {".cpp; .c; .h; .hpp" : "--cpp", 
                        ".php" : "--php", 
@@ -118,10 +119,10 @@ def onFindButtonClick():
     rawOutput = subprocess.Popen(params, encoding='utf-8', stdout=subprocess.PIPE).communicate()[0]
 
     makePreviewText(rawOutput)
-    onFileSelectChange()
+    changeFile()
 
 ## СМЕНА ФАЙЛА       
-def onFileSelectChange():
+def changeFile():
     if (len(filePreviews) > 0):
         ui.filePreview.setText(filePreviews[ui.fileSelect.currentIndex()])
     else:
@@ -140,9 +141,11 @@ def onDirectoryClick():
 def onOpenFileButtonClicked():
     os.startfile(startDirectory + "/" + ui.fileSelect.currentText())
 
+## СВЯЗЬ UI С ФУНКЦИЯМИ
 ui.findButton.clicked.connect(onFindButtonClick)
-ui.fileSelect.currentIndexChanged.connect(onFileSelectChange)
+ui.fileSelect.currentIndexChanged.connect(changeFile)
 ui.selectDirectoryButton.clicked.connect(onDirectoryClick)
 ui.openFileButton.clicked.connect(onOpenFileButtonClicked)
 
+## ЗАКРЫТИЕ ПРОГРАММЫ
 sys.exit(app.exec())
