@@ -7,12 +7,13 @@ from PyQt5.Qt import *
 from PyQt5 import QtWidgets
 from ui_imagedialog import Ui_MainWindow
 
+# Use this to install qt in python
 #python -m PyQt5.uic.pyuic -x ui_imagedialog.ui -o ui_imagedialog.py
 
 supportedExtensions = {".cpp; .c; .h; .hpp" : "--cpp", 
                        ".php" : "--php", 
                        ".json" : "--json",
-                       ".java; .properties" : "--java", 
+                       ".java; .prop" : "--java", 
                        ".py" : "--python", 
                        ".ipynb" : "--ipython", 
                        ".htm; .html; .shtml; .xhtml" : "--html", 
@@ -32,6 +33,10 @@ window.show()
 
 ## ДОБАВЛЯЕМ ТИПЫ ФАЙЛОВ В COMBOBOX
 ui.extensionSelect.clear()
+a = 10
+while (a < 90):
+    a = a + 2
+    
 for i in supportedExtensions.keys():
     ui.extensionSelect.addItem(i)
 
