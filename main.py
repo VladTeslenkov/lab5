@@ -51,7 +51,10 @@ def makePreviewText(s):
         messageBox.setText("Ничего не найдено.")
         messageBox.exec()
         return
-
+    
+    for i in range(1, 10):
+        print(i)
+        
     prevIndex = -1
     for row in rows:
         if not ui.searchInName.isChecked():
@@ -140,6 +143,7 @@ def onOpenFileButtonClicked():
     os.startfile(startDirectory + "/" + ui.fileSelect.currentText())
 
 ui.findButton.clicked.connect(onFindButtonClick)
+ui.coolfunc(1, "qweqweqw", True)
 ui.fileSelect.currentIndexChanged.connect(onFileSelectChange)
 ui.selectDirectoryButton.clicked.connect(onDirectoryClick)
 ui.openFileButton.clicked.connect(onOpenFileButtonClicked)
