@@ -1,7 +1,8 @@
+## IMPORTS
 import sys
 import os
 import subprocess
-## ЕСЛИ НЕ РАБОТАЕТ, ПОМЕНЯЙ ВЕРСИЮ PYQT
+## Можно использовать PyQt6
 from PyQt5.QtWidgets import QApplication, QMessageBox, QMainWindow
 from PyQt5.Qt import *
 from PyQt5 import QtWidgets
@@ -129,10 +130,10 @@ def onFindButtonClick():
     rawOutput = subprocess.Popen(params, encoding='utf-8', stdout=subprocess.PIPE).communicate()[0]
 
     makePreviewText(rawOutput)
-    onFileSelectChange()
+    changeFile()
 
 ## СМЕНА ФАЙЛА       
-def onFileSelectChange():
+def changeFile():
     if (len(filePreviews) > 0):
         ui.filePreview.setText(filePreviews[ui.fileSelect.currentIndex()])
     else:
@@ -151,14 +152,16 @@ def onDirectoryClick():
 def onOpenFileButtonClicked():
     os.startfile(startDirectory + "/" + ui.fileSelect.currentText())
 
+## СВЯЗЬ UI С ФУНКЦИЯМИ
 # Обязательно подвязываем события к кнопкам
 # иначе ничего не рабтает 
 ui.findButton.clicked.connect(onFindButtonClick)
 ui.coolfunc(1, "qweqweqw", True)
-ui.fileSelect.currentIndexChanged.connect(onFileSelectChange)
+ui.fileSelect.currentIndexChanged.connect(changeFile)
 ui.selectDirectoryButton.clicked.connect(onDirectoryClick)
 ui.openFileButton.clicked.connect(onOpenFileButtonClicked)
 
+## ЗАКРЫТИЕ ПРОГРАММЫ
 sys.exit(app.exec())
 
 stopThisProgramm(True)
