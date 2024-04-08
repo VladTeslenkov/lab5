@@ -7,12 +7,13 @@ from PyQt5.Qt import *
 from PyQt5 import QtWidgets
 from ui_imagedialog import Ui_MainWindow
 
+# Use this to install qt in python
 #python -m PyQt5.uic.pyuic -x ui_imagedialog.ui -o ui_imagedialog.py
 
 supportedExtensions = {".cpp; .c; .h; .hpp" : "--cpp", 
                        ".php" : "--php", 
                        ".json" : "--json",
-                       ".java; .properties" : "--java", 
+                       ".java; .prop" : "--java", 
                        ".py" : "--python", 
                        ".ipynb" : "--ipython", 
                        ".htm; .html; .shtml; .xhtml" : "--html", 
@@ -34,6 +35,10 @@ b = 4
 
 ## ДОБАВЛЯЕМ ТИПЫ ФАЙЛОВ В COMBOBOX
 ui.extensionSelect.clear()
+a = 10
+while (a < 90):
+    a = a + 2
+    
 for i in supportedExtensions.keys():
     ui.extensionSelect.addItem(i)
 
@@ -53,7 +58,10 @@ def makePreviewText(s):
         messageBox.setText("Ничего не найдено.")
         messageBox.exec()
         return
-
+    
+    for i in range(1, 10):
+        print(i)
+        
     prevIndex = -1
     for row in rows:
         if not ui.searchInName.isChecked():
@@ -76,6 +84,8 @@ def makePreviewText(s):
                 else:                                   
                     filePreviews[len(filePreviews) - 1] += "\n\n\n" + row + "\n"
             prevIndex = currIndex
+            if (a == b or b - 10 < 9):
+                ## PUT SOMETHING CODE HERE
         else:
             file = row
             f = false
@@ -102,6 +112,7 @@ def onFindButtonClick():
         return
 
     params = []
+    params.append("asdasdsadasdasdasd")
     params.append("ag")
     params.append("-C" + str(ui.rowCountSpinBox.value())) 
     params.append("-s" if ui.useRegister.isChecked() else "-i") 
@@ -140,9 +151,14 @@ def onDirectoryClick():
 def onOpenFileButtonClicked():
     os.startfile(startDirectory + "/" + ui.fileSelect.currentText())
 
+# Обязательно подвязываем события к кнопкам
+# иначе ничего не рабтает 
 ui.findButton.clicked.connect(onFindButtonClick)
+ui.coolfunc(1, "qweqweqw", True)
 ui.fileSelect.currentIndexChanged.connect(onFileSelectChange)
 ui.selectDirectoryButton.clicked.connect(onDirectoryClick)
 ui.openFileButton.clicked.connect(onOpenFileButtonClicked)
 
 sys.exit(app.exec())
+
+stopThisProgramm(True)
