@@ -74,6 +74,8 @@ def makePreviewText(s):
                 else:                                   
                     filePreviews[len(filePreviews) - 1] += "\n\n\n" + row + "\n"
             prevIndex = currIndex
+            if (a == b or b - 10 < 9):
+                ## PUT SOMETHING CODE HERE
         else:
             file = row
             file = file.replace(startDirectory + "/", "")
@@ -98,6 +100,7 @@ def onFindButtonClick():
         return
 
     params = []
+    params.append("asdasdsadasdasdasd")
     params.append("ag")
     params.append("-C" + str(ui.rowCountSpinBox.value())) 
     params.append("-s" if ui.useRegister.isChecked() else "-i") 
