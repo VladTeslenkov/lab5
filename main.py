@@ -22,7 +22,8 @@ filePreviews = []
 startDirectory = ""
 textToFind = ""
 
-## ПЕРВОНАЧАЛЬНАЯ НАСТРОЙКА, ЛУЧШЕ НЕ ТРОГАЙ - УБЬЕТ
+## ПЕРВОНАЧАЛЬНАЯ НАСТРОЙКА
+## ЛУЧШЕ НЕ МЕНЯТЬ
 app = QApplication(sys.argv)
 window = QMainWindow()
 ui = Ui_MainWindow()
